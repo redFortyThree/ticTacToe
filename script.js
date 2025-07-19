@@ -22,5 +22,14 @@ function getComputerChoice () {
         return "sissors";
     }
 }
-
+/*call the choice*/
 console.log(getComputerChoice());
+
+
+/** ask the user to type in their choice between rock paper and sissors*/
+function getPlayerChoice() {
+   return prompt('','');
+}
+
+/**call the player choice */
+console.log(getPlayerChoice());
