@@ -12,24 +12,52 @@ function getComputerChoice () {
     
     let oppNumber = Math.random() * 100;
     
-    console.log(oppNumber);
+    
 
     if (oppNumber < 33) {
+        /** rock */
         return "rock";
-    } else if (oppNumber < 66) {
+    } else if /** paper */ (oppNumber < 66) {
         return "paper";
-    } else {
+    } /** sissors */else {
         return "sissors";
     }
 }
-/*call the choice*/
-console.log(getComputerChoice());
+
 
 
 /** ask the user to type in their choice between rock paper and sissors*/
 function getPlayerChoice() {
-   return prompt('','');
+   return prompt('','enter rock, paper, or sissors');
 }
 
-/**call the player choice */
-console.log(getPlayerChoice());
+
+
+
+
+
+
+let humanScore = 0;
+let computerScore = 0;
+
+function playRound(humanChoice,computerChoice) {
+    console.log(computerChoice);
+    console.log(humanChoice);
+    if (humanChoice === computerChoice) {
+        return "tie";
+    } else if (humanChoice == "rock" && computerChoice == "sissors"){
+        return "HUMAN WON";
+    } else if (humanChoice == "paper" && computerChoice == "rock") {
+        return "HUMAN WON";
+    } else if (humanChoice == "sissors" && computerChoice == "paper"){
+        return "HUMAN WON";
+    } else {
+        return "computer won :(";
+    }
+    }
+
+
+const humanSelection = getPlayerChoice();
+const computerSelection = getComputerChoice();
+
+console.log(playRound(humanSelection,computerSelection));
