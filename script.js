@@ -94,6 +94,7 @@ const computerSelection10 = getComputerChoice();
  * in all likely hood, there wouldn't be instances of 5 ties. 
  */
 
+
 console.log(playRound(humanSelection,computerSelection));
 console.log("player score: " + humanScore);
 console.log("computer score is " + computerScore);
@@ -106,37 +107,73 @@ console.log("computer score is " + computerScore);
 console.log(playRound(humanSelection4,computerSelection4));
 console.log("player score: " + humanScore);
 console.log("computer score is " + computerScore);
+if (humanScore === 3) {
+      return console.log("Player won!"); 
+    } else if (computerScore === 3) {
+        return console.log("computer won");
+    } else {
+
 console.log(playRound(humanSelection5,computerSelection5));
 console.log("player score: " + humanScore);
 console.log("computer score is " + computerScore);
+    }
+if (humanScore === 3) {
+      return console.log("Player won!"); 
+    } else if (computerScore === 3) {
+        return console.log("computer won");
+    } else {
+
 console.log(playRound(humanSelection6,computerSelection6));
 console.log("player score: " + humanScore);
 console.log("computer score is " + computerScore);
+    }
+if (humanScore === 3) {
+      return console.log("Player won!"); 
+    } else if (computerScore === 3) {
+        return console.log("computer won");
+    } else {
+
 console.log(playRound(humanSelection7,computerSelection7));
 console.log("player score: " + humanScore);
 console.log("computer score is " + computerScore);
+    }
+if (humanScore === 3) {
+      return console.log("Player won!"); 
+    } else if (computerScore === 3) {
+        return console.log("computer won");
+    } else {
+    }
 console.log(playRound(humanSelection8,computerSelection8));
 console.log("player score: " + humanScore);
 console.log("computer score is " + computerScore);
+if (humanScore === 3) {
+      return console.log("Player won!"); 
+    } else if (computerScore === 3) {
+        return console.log("computer won");
+    } else {
 console.log(playRound(humanSelection9,computerSelection9));
 console.log("player score: " + humanScore);
 console.log("computer score is " + computerScore);
+    }
+if (humanScore === 3) {
+      return console.log("Player won!"); 
+    } else if (computerScore === 3) {
+        return console.log("computer won");
+    } else {
+    }
 console.log(playRound(humanSelection10,computerSelection10));
 console.log("player score: " + humanScore);
 console.log("computer score is " + computerScore);
-
-/**getting the tally of best three out of 5.  */
-if (humanScore == 3) {
-      return console.log("Player won!"); 
-    } else if (computerScore == 3) {
-        return console.log("computer won");
-    }
 }
+/**getting the tally of best three out of 5.  */
+
+
 
 
 
 
 
 playGame();
+
 
 
