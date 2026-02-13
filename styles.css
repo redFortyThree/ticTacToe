@@ -1,0 +1,23 @@
+.myButton {
+    border: 0px;
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: rgb(243, 62, 236);
+}
+
+.game-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: blueviolet;
+    height: 500px;
+    
+}
+.button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+}
+

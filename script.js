@@ -29,8 +29,7 @@ function getComputerChoice () {
 const rockButton = document.getElementById("rock");
 const paperButton = document.querySelector('#paper');
 const scissorsButton = document.querySelector("#scissors");
-
-
+const resultsContainer= document.getElementById("results");
 
 
 
@@ -47,23 +46,60 @@ let computerScore = 0;
  * I need the restart the function in case of a tie..
  * but not sure how ATM
 */
-function playRound(humanChoice,computerChoice) {
-   
-    console.log("CPU choice is " +computerChoice);
-    console.log("Player choice is " +humanChoice);
-    
-    if (humanChoice === computerChoice) {
-        return "tie";
-    } else if (humanChoice == "rock" && computerChoice == "scissors"){
-        return "HUMAN WON" && humanScore ++;
-    } else if (humanChoice == "paper" && computerChoice == "rock") {
-        return "HUMAN WON" && humanScore ++;
-    } else if (humanChoice == "scissors" && computerChoice == "paper"){
-        return "HUMAN WON" && humanScore ++;
-    } else {
-        return "computer won :(" && computerScore ++;
-    }
 
+function playRound(humanChoice,computerChoice) {
+   resultsContainer.textContent="";
+    const prntRsltCpu = document.createElement('p');
+    const prntRsltP1 = document. createElement('p');
+    
+   
+    const cpuChoice = document.createElement("h1");
+    const p1Choice = document.createElement("h1");
+    cpuChoice.textContent = "CPU chose " + computerChoice;
+    p1Choice.textContent = "YOU chose " + humanChoice;
+   
+   resultsContainer.appendChild(p1Choice);
+   resultsContainer.appendChild(cpuChoice);
+   
+   const roundResultHolder = document.createElement('h2');
+   const gameOverCPU = "GAME OVER! YOU LOST";
+   const gameOverP1 = "YOU BEAT THE GAME";
+   const roundResultsCPU = "COMPUTER WINS THIS ROUND";
+   const roundResultP1 = "PLAYER 1 WINS THIS ONE";
+   const roundResultTie = "tie";
+
+   if (humanScore == 5) {
+        resultsContainer.textContent = "GAME OVER"
+    } else if (computerScore == 5) {
+        resultsContainer.textContent = "GAME OVER"
+    } else if (humanChoice === computerChoice) {
+        roundResultHolder.textContent = roundResultTie;
+        
+    } else if (humanChoice == "rock" && computerChoice == "scissors"){
+         (roundResultHolder.textContent = roundResultP1) && humanScore ++
+        
+    } else if (humanChoice == "paper" && computerChoice == "rock") {
+         (roundResultHolder.textContent = roundResultP1) && humanScore ++ 
+        
+    } else if (humanChoice == "scissors" && computerChoice == "paper"){
+         (roundResultHolder.textContent = roundResultP1) && humanScore ++ 
+        
+    } else {
+        (roundResultHolder.textContent = roundResultsCPU) && computerScore ++;
+    }
+    
+    if (humanScore == 5) {
+        resultsContainer.textContent = "GAME OVER"
+    }
+    if (computerScore == 5) {
+        resultsContainer.textContent = "GAME OVER"
+    }
+    resultsContainer.appendChild(roundResultHolder);
+    prntRsltCpu.textContent = "cpu score is " + computerScore;
+    prntRsltP1.textContent = "player score is " + humanScore;
+    resultsContainer.appendChild(prntRsltCpu);
+    resultsContainer.appendChild(prntRsltP1);
+;
 }
 
 console.log("Player score is " + humanScore);
@@ -71,123 +107,33 @@ console.log("Computer Score is " + computerScore);
 
 
 rockButton.addEventListener("click", () =>{
+   
     playRound('rock',getComputerChoice());
+    
     console.log("cpu score is " + computerScore);
     console.log("Player score is " +humanScore);
-}
+   }
+
 );
 paperButton.addEventListener("click", () => {
+   
     playRound('paper', getComputerChoice());
+    
     console.log("cpu score is " + computerScore);
     console.log("Player score is " +humanScore);
-})
-scissorsButton.addEventListener("click", () => {
-    playRound('scissors', getComputerChoice());
-    console.log("cpu score is " + computerScore);
-    console.log("Player score is " +humanScore);
-})
-
-/**setting up 10 variables with different names 
- * so they get called again with new values */
-/*
-const humanSelection = getPlayerChoice();
-const computerSelection = getComputerChoice();
-const humanSelection2 = getPlayerChoice();
-const computerSelection2 = getComputerChoice();
-const humanSelection3 = getPlayerChoice();
-const computerSelection3 = getComputerChoice();
-const humanSelection4 = getPlayerChoice();
-const computerSelection4 = getComputerChoice();
-const humanSelection5 = getPlayerChoice();
-const computerSelection5 = getComputerChoice();
-const humanSelection6 = getPlayerChoice();
-const computerSelection6 = getComputerChoice();
-const humanSelection7 = getPlayerChoice();
-const computerSelection7 = getComputerChoice();
-const humanSelection8 = getPlayerChoice();
-const computerSelection8 = getComputerChoice();
-const humanSelection9 = getPlayerChoice();
-const computerSelection9 = getComputerChoice();
-const humanSelection10 = getPlayerChoice();
-const computerSelection10 = getComputerChoice();
-
-calling the rounds. Trouble is with instances of a tie..
- * I could safely just make say, 10 variables and 
- * in all likely hood, there wouldn't be instances of 5 ties. 
- */
-/*
-
-console.log(playRound(humanSelection,computerSelection));
-console.log("player score: " + humanScore);
-console.log("computer score is " + computerScore);
-console.log(playRound(humanSelection2,computerSelection2));
-console.log("player score: " + humanScore);
-console.log("computer score is " + computerScore);
-console.log(playRound(humanSelection3,computerSelection3));
-console.log("player score: " + humanScore);
-console.log("computer score is " + computerScore);
-console.log(playRound(humanSelection4,computerSelection4));
-console.log("player score: " + humanScore);
-console.log("computer score is " + computerScore);
-if (humanScore === 3) {
-      return console.log("Player won!"); 
-    } else if (computerScore === 3) {
-        return console.log("computer won");
-    } else {
-
-console.log(playRound(humanSelection5,computerSelection5));
-console.log("player score: " + humanScore);
-console.log("computer score is " + computerScore);
-    }
-if (humanScore === 3) {
-      return console.log("Player won!"); 
-    } else if (computerScore === 3) {
-        return console.log("computer won");
-    } else {
-
-console.log(playRound(humanSelection6,computerSelection6));
-console.log("player score: " + humanScore);
-console.log("computer score is " + computerScore);
-    }
-if (humanScore === 3) {
-      return console.log("Player won!"); 
-    } else if (computerScore === 3) {
-        return console.log("computer won");
-    } else {
-
-console.log(playRound(humanSelection7,computerSelection7));
-console.log("player score: " + humanScore);
-console.log("computer score is " + computerScore);
-    }
-if (humanScore === 3) {
-      return console.log("Player won!"); 
-    } else if (computerScore === 3) {
-        return console.log("computer won");
-    } else {
-    }
-console.log(playRound(humanSelection8,computerSelection8));
-console.log("player score: " + humanScore);
-console.log("computer score is " + computerScore);
-if (humanScore === 3) {
-      return console.log("Player won!"); 
-    } else if (computerScore === 3) {
-        return console.log("computer won");
-    } else {
-console.log(playRound(humanSelection9,computerSelection9));
-console.log("player score: " + humanScore);
-console.log("computer score is " + computerScore);
-    }
-if (humanScore === 3) {
-      return console.log("Player won!"); 
-    } else if (computerScore === 3) {
-        return console.log("computer won");
-    } else {
-    }
-console.log(playRound(humanSelection10,computerSelection10));
-console.log("player score: " + humanScore);
-console.log("computer score is " + computerScore);
 }
-/**getting the tally of best three out of 5.  */
+)
+
+scissorsButton.addEventListener("click", () => {
+    
+    playRound('scissors', getComputerChoice());
+    
+    console.log("cpu score is " + computerScore);
+    console.log("Player score is " +humanScore);
+    }
+)
+
+// below this line was the old way.. "setting up 10 rounds"
 
 
 
